@@ -30,18 +30,18 @@ def api():
                     result += int(i.group())
                 return jsonify({'slackUsername': 'Lamido', 'operation_type': 'addition', 'result': result})
 
-            elif "subtract" or "minus" in operation:
-                result = 0
-                for i in re.finditer(r'\d+', operation):
-                    result = int(i.group()) - result
-                return jsonify({'slackUsername': 'Lamido', 'operation_type': 'subtraction', 'result': result})
-
             elif "multiply" in operation:
+                result = 1
+                for i in re.finditer(r'\d+', operation):
+                    result *= int(i.group())
+                return jsonify({'slackUsername': 'Lamido', 'operation_type': 'multiplication', 'result': result})
+
+            elif "subtract" or "minus" in operation:
                 result = []
                 for i in re.finditer(r'\d+', operation):
                     result.append(int(i.group()))
-                return jsonify({'slackUsername': 'Lamido', 'operation_type': 'multiplication', 'result': result[0] * result[1]})
-
+                return jsonify({'slackUsername': 'Lamido', 'operation_type': 'subtraction', 'result': result[0] - result[1]})
+                
     else:
         return "sorry invalid request: please confirm and try again"
 
