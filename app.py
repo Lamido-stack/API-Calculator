@@ -40,7 +40,7 @@ def api():
                 result = []
                 for i in re.finditer(r'\d+', operation):
                     result.append(int(i.group()))
-                return jsonify({'slackUsername': 'Lamido', 'operation_type': 'multiplication', 'result': result[0] - result[1]})
+                return jsonify({'slackUsername': 'Lamido', 'operation_type': 'multiplication', 'result': result[0] * result[1]})
 
     else:
         return "sorry invalid request: please confirm and try again"
