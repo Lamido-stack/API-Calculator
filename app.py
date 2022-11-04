@@ -36,7 +36,7 @@ def api():
                     result = int(i.group()) - result
                 return jsonify({'slackUsername': 'Lamido', 'operation_type': 'subtraction', 'result': result})
 
-            if "multiply" in operation:
+            elif "multiply" in operation:
                 result = []
                 for i in re.finditer(r'\d+', operation):
                     result.append(int(i.group()))
