@@ -22,7 +22,7 @@ def api():
 
             return jsonify({'slackUsername': 'Lamido', 'operation_type': 'multiplication', 'result': int(data["x"]) * int(data["y"])})
     
-        elif "add" or "subtract" or "minus" or "multiply" in operation:
+        elif "add" or "plus" or "subtract" or "minus" or "remove" or "multiply" or "times" or "multiplied" in operation:
 
             if "add" or "plus" in operation:
                 result = 0
