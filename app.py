@@ -24,11 +24,11 @@ def api():
     
         elif "add" or "plus" or "subtract" or "minus" or "remove" or "multiply" or "times" or "multiplied" in operation:
 
-            if "add" or "plus" in operation:
-                result = 0
-                for i in re.finditer(r'\d+', operation):
-                    result += int(i.group())
-                return jsonify({'slackUsername': 'Lamido this', 'operation_type': 'addition', 'result': result})
+            # if "add" or "plus" in operation:
+            #     result = 0
+            #     for i in re.finditer(r'\d+', operation):
+            #         result += int(i.group())
+            #     return jsonify({'slackUsername': 'Lamido', 'operation_type': 'addition', 'result': result})
 
             elif "multiply" or "times" or "multiplied" in operation:
                 result = 1
