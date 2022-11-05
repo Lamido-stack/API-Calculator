@@ -24,29 +24,30 @@ def api():
     
         elif "add" or "subtract" or "minus" or "multiply" in operation:
 
-            if "add" in operation:
+            if "add" or "plus" in operation:
                 result = 0
                 for i in re.finditer(r'\d+', operation):
                     result += int(i.group())
                 return jsonify({'slackUsername': 'Lamido', 'operation_type': 'addition', 'result': result})
 
-            elif "multiply" in operation:
+            elif "multiply" or "times" or "multiplied" in operation:
                 result = 1
                 for i in re.finditer(r'\d+', operation):
                     result *= int(i.group())
                 return jsonify({'slackUsername': 'Lamido', 'operation_type': 'multiplication', 'result': result})
 
-            elif "subtract" or "minus" in operation:
+            elif "subtract" or "minus" or "remove" in operation:
                 result = []
                 for i in re.finditer(r'\d+', operation):
                     result.append(int(i.group()))
                 return jsonify({'slackUsername': 'Lamido', 'operation_type': 'subtraction', 'result': result[0] - result[1]})
-                
+
     else:
         return "sorry invalid request: please confirm and try again"
 
 
-
+# https://mido-calc.herokuapp.com/
+# https://github.com/Lamido-stack/API-Calculator
 #  Task Description
 # Using the same server setup from stage one
 # Create an (POST) api endoint that takes the following sample json:
