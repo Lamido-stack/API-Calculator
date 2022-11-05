@@ -28,7 +28,7 @@ def api():
                 result = 0
                 for i in re.finditer(r'\d+', operation):
                     result += int(i.group())
-                return jsonify({'slackUsername': 'Lamido', 'operation_type': 'addition', 'result': result})
+                return jsonify({'slackUsername': 'Lamido this', 'operation_type': 'addition', 'result': result})
 
             elif "multiply" or "times" or "multiplied" in operation:
                 result = 1
